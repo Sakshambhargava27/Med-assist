@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Checkup Form</title>
+    <style>
+        /* 🌿 Professional Healthcare Theme */
+        body {
+            background: linear-gradient(to right, #1E3A8A, #4CAF50); /* Dark blue to green gradient */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            flex-direction: column;
+        }
+
+        /* 🏥 Logo Styling */
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 100px; /* Adjust logo size */
+            height: 100px;
+            border-radius: 50%; /* Circular logo */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+
+        /* 📌 Form Container */
+        .form-container {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #1E3A8A; /* Dark blue header */
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* 📝 Input Fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #1E3A8A;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #f9f9f9;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* ✅ Submit Button */
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #388E3C;
+        }
+
+        /* ❌ Error Message */
+        #error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* ✅ Success Message */
+        #success-message {
+            display: none;
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            font-size: 1rem;
+            margin-top: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🏥 Circular Logo -->
+    <div class="logo-container">
+        <img src="logo.JPG" alt="Healthcare Logo">
+    </div>
+
+    <div class="form-container">
+        <h1>Health Checkup Form</h1>
+        <form id="healthForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Enter your age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="symptoms">Symptoms</label>
+                <input type="text" id="symptoms" placeholder="Enter symptoms or disease" required>
+            </div>
+
+            <button type="submit">Submit</button>
+            <p id="error-message">⚠️ Please fill all fields before submitting.</p>
+        </form>
+
+        <!-- ✅ Success message block -->
+        <div id="success-message">✔️ Form submitted successfully!</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("healthForm");
+            const successMessage = document.getElementById("success-message");
+            const errorMessage = document.getElementById("error-message");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+                const age = document.getElementById("age").value.trim();
+                const symptoms = document.getElementById("symptoms").value.trim().toLowerCase();
+
+                if (!name || !age || !symptoms) {
+                    errorMessage.style.display = "block";
+                    successMessage.style.display = "none";
+                    return;
+                }
+
+                errorMessage.style.display = "none";
+                successMessage.style.display = "block";
+
+                // Store data in local storage
+                localStorage.setItem("userDetails", JSON.stringify({ name, age, symptoms }));
+
+                // Redirect to details page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = "details.html";
+                }, 2000);
+            });
+        });
+    </script>
+
+</body>
+</html>
