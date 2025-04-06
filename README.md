@@ -14,9 +14,6 @@ Med-Assist is a smart AI-powered medical chatbot web app built using HTML, CSS, 
 **Saksham Bhargava**  
 Email: sakshambhargava27@gmail.com
 
-**Paridhi Singh**  
-Email: paridhisinghrawat10@gmail.com
-
 ---
 
 ## 📌 Features
