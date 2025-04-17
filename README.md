@@ -16,6 +16,17 @@ Email: sakshambhargava27@gmail.com
 
 ---
 
+## 👨🏻‍💻 Co-developed By
+
+**Paridhi**
+Email: paridhisinghrawat10@gmail.com
+
+**Vishal Saini**
+Email: no
+
+**Deepanshi**
+Email: no
+
 ## 📌 Features
 
 - 💬 Chat interface for medical questions
