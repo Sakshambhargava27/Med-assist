@@ -22,10 +22,8 @@ Email: sakshambhargava27@gmail.com
 Email: paridhisinghrawat10@gmail.com
 
 **Vishal Saini**
-Email: no
 
 **Deepanshi**
-Email: no
 
 ## 📌 Features
 
